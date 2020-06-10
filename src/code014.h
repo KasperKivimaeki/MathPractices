@@ -23,7 +23,7 @@ void print_chain(int a) {
 	printf("%d\n", a);
 }
 
-void main() {
+long double solve014() {
 	int n = 0;
 	int m = 1;
 	int d = 0;
@@ -39,5 +39,5 @@ void main() {
 		n++;
 	}
 
-	printf("%d\n", d);
+    return d;
 }

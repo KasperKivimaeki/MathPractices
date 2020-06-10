@@ -1,19 +1,14 @@
 #include <stdio.h>
 #include <math.h>
 
-long r2(long a) {
-	return (long)(sqrt(a) + 0.5f);
-}
-
-
-void main() {
+long double solve012() {
 	long most_divs = 1;
 
 	long n = 1;
 
 	while(most_divs < 2000) {
 		long tri = n*(n + 1)/2;
-		long r = r2(tri);
+		long r = sqrt(tri);
 	
 		long divs = 0;
 
@@ -35,4 +30,9 @@ void main() {
 		}
 		n += 1;
 	}
+    return n;
+}
+
+void main() {
+    solve012();
 }

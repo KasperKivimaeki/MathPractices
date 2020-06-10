@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void main() {
+long double solve013() {
 	char* ns[100] = {
 		"37107287533902102798797998220837590246510135740250",
 		"46376937677490009712648124896970078050417018260538",
@@ -117,14 +117,14 @@ void main() {
 		}
 		c = d / 10;
 		d %= 10;
-
-		printf("%d", d);
 	}
 
+/*
 	while(c > 0) {
 		printf("%d", c % 10);
 		c = c / 10;
 	}
+*/
 
-	printf("\n");
+    return c;
 }
