@@ -1,38 +1,25 @@
 #include <stdio.h>
 #include <math.h>
+#include "common/common.h"
 
-long double solve012() {
-	long most_divs = 1;
+#define PNAME "Highly divisible triangular number"
 
-	long n = 1;
+int main() {
 
-	while(most_divs < 2000) {
-		long tri = n*(n + 1)/2;
-		long r = sqrt(tri);
-	
-		long divs = 0;
+	long r, m, d = 0, n = 0;
 
-		for(long i = 1; i < r; i++) {
-			if(tri % i == 0) {
-				divs += 2;
-			}
-		}
-	
-		if(tri % r == 0)
-			if(r*r == tri)
-				divs += 1;
-			else	
-				divs += 2;
+	while(500 - d > 0) {
+		m = ++n*(n + 1)/2;
+		r = r2(m);
+		d = !(m % r) * (2 - !!(r*r - m));
 
-		if(divs > most_divs) {
-			most_divs = divs;
-			printf("%ld %ld %ld \n", n, tri, divs);
-		}
-		n += 1;
+        while (--r) d += 2 * !(m % r);
+
+		m *= !!(d - 500);
 	}
-    return n;
-}
 
-void main() {
-    solve012();
+    printf("Problem: %s\n", PNAME);
+    printf("Solution: %ld\n", m);
+
+    return 0;
 }

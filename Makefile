@@ -1,4 +1,9 @@
+%.o:
+	gcc -O -c src/code$$(printf "%03d" $*).c -o code.o 
 
+common.o:
+	gcc -O -c src/common/common.c
 
-1:
-	gcc src/code001.c -o euler -lm
+%: %.o common.o
+	gcc common.o code.o -o euler -lm
+	./euler

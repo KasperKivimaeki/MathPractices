@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+#define PNAME "Largest product in a grid"
+
 int grid[20][20] = {{8,2,22,97,38,15,0,40,0,75,4,5,7,78,52,12,50,77,91,8},
 				    {49,49,99,40,17,81,18,57,60,87,17,40,98,43,69,48,4,56,62,0},
 				    {81,49,31,73,55,79,14,29,93,71,40,67,53,88,30,3,49,13,36,65},
@@ -22,33 +24,27 @@ int grid[20][20] = {{8,2,22,97,38,15,0,40,0,75,4,5,7,78,52,12,50,77,91,8},
  				    {1,70,54,71,83,51,54,69,16,92,33,48,61,43,52,1,89,19,67,48}};
 
 
-// Etsitään laatikotan sisältä suurin vaaka-,pysty- tai diagonaalirivi.
 int count(int** a) {
 	int m = 0;
-	// Vaakarivit
 	for(int i = 0; i < 4; i++) {
 		int d = a[i][0] * a[i][1] * a[i][2] * a[i][3];
 		if(d > m) m = d;
 	}
 
-	// Pystyrivit
 	for(int i = 0; i < 4; i++) {
 		int d = a[0][i] * a[1][i] * a[2][i] * a[3][i];
 		if(d > m) m = d;
 	}	
-	// Kaksi eri diagonaalia
 	int diag1 = a[0][0] * a[1][1] * a[2][2] * a[3][3];
 	int diag2 = a[0][3] * a[1][2] * a[2][1] * a[3][0];
 	if(diag1 > m) m = diag1;
 	if(diag2 > m) m = diag2;
 
-	// Palautetaan suurin löydetty arvo
 	return m;
 }
 
-int solve011() {
+int main() {
 	int m = 0;
-	// Käydään kaikki mahdolliset 4x4 neliöt lapi taulukosta
 	for(int h = 0; h < 17; h++) {
 		for(int w = 0; w < 17; w++) {
 			int* arr[4];
@@ -61,5 +57,9 @@ int solve011() {
 			if(v > m) m = v;
 		}
 	}
-    return m;
+
+    printf("Problem: %s\n", PNAME);
+    printf("Solution: %d\n", m);
+
+    return 0;
 }

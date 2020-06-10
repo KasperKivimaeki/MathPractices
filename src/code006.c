@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include "common/common.h"
 
-#define PNAME "Multiples of 3 and 5"
+#define PNAME "Sum square difference"
 
 int main() {
 
-    int s = 0;
-    int i = 0;
-    while (++i < 1000) s += i * !(i % 3 && i % 5);
+    int i = 100;
+    int s = i*i*(1 + 2*i + i*i) / 4;;
+    while (i) (s -= i*i, i--);
 
     printf("Problem: %s\n", PNAME);
     printf("Solution: %d\n", s);

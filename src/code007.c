@@ -5,12 +5,12 @@
 
 int main() {
 
-    int s = 0;
-    int i = 0;
-    while (++i < 1000) s += i * !(i % 3 && i % 5);
+    int p = 0;
+    int i = 1;
+    while (p < 10000) p += isPrime(++i);
 
     printf("Problem: %s\n", PNAME);
-    printf("Solution: %d\n", s);
+    printf("Solution: %d\n", i);
 
     return 0;
 }
