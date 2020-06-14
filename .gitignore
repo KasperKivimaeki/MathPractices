@@ -1,6 +1,6 @@
 # Binary files
 euler
-.o
+*.o
 
 # Vim swp files
 *.swp
